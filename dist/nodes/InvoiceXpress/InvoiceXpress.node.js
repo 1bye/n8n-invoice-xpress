@@ -100,7 +100,7 @@ class InvoiceXpress {
                         const value = tax.value;
                         acc.push({
                             name: name ? `${name}${value !== undefined ? ` (${value}%)` : ''}` : String(id),
-                            value: id,
+                            value: String(id),
                         });
                         return acc;
                     }, []);

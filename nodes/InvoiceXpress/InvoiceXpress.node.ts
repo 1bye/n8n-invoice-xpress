@@ -11,8 +11,6 @@ import { creditNoteDescription } from './resources/creditNote';
 import { taxDescription } from './resources/tax';
 import { changeStateDescription } from './resources/changeState';
 
-// Flex changes
-
 export class InvoiceXpress implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'InvoiceXpress',
@@ -112,7 +110,7 @@ export class InvoiceXpress implements INodeType {
           const value = tax.value;
           acc.push({
             name: name ? `${name}${value !== undefined ? ` (${value}%)` : ''}` : String(id),
-            value: id,
+            value: String(id),
           });
           return acc;
         }, []);

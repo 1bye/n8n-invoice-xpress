@@ -1,7 +1,7 @@
 {
     "name": "n8n-nodes-invoice-xpress",
-    "version": "0.2.5",
-    "description": "n8n community nodes for InvoiceXpress via ix-proxy",
+    "version": "0.2.7",
+    "description": "n8n community nodes for InvoiceXpress",
     "license": "MIT",
     "homepage": "",
     "keywords": [

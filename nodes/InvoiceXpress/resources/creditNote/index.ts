@@ -28,7 +28,7 @@ export const creditNoteDescription: INodeProperties[] = [
             method: 'POST',
             url: '=/v2/credit_notes',
             body:
-              '={{ ({ credit_note: { date: $parameter.date, due_date: $parameter.due_date, owner_invoice_id: $parameter.owner_invoice_id, tax_exemption_reason: $parameter.tax_exemption_reason || undefined, observations: $parameter.observations || undefined, client: { id: $parameter.client_id || undefined, name: $parameter.client_name || undefined, email: $parameter.client_email || undefined, fiscal_id: $parameter.client_fiscal_id || undefined, address: $parameter.client_address || undefined, postal_code: $parameter.client_postal_code || undefined, country: $parameter.client_country || undefined, code: $parameter.client_code || undefined, city: $parameter.client_city || undefined, phone: $parameter.client_phone || undefined }, items: ($parameter.itemsMode === "json" ? ($parameter.items_json ?? []) : ($parameter.items?.item ?? []).map((i) => ({ name: i.name || undefined, description: i.description || undefined, unit: i.unit || undefined, quantity: i.quantity, unit_price: i.unit_price, tax: i.tax_id || undefined }))) } }) }}',
+              '={{ ({ credit_note: { date: $parameter.date, due_date: $parameter.due_date, owner_invoice_id: $parameter.owner_invoice_id, tax_exemption_reason: $parameter.tax_exemption_reason || undefined, observations: $parameter.observations || undefined, client: { id: $parameter.client_id || undefined, name: $parameter.client_name || undefined, email: $parameter.client_email || undefined, fiscal_id: $parameter.client_fiscal_id || undefined, address: $parameter.client_address || undefined, postal_code: $parameter.client_postal_code || undefined, country: $parameter.client_country || undefined, code: $parameter.client_code || undefined, city: $parameter.client_city || undefined, phone: $parameter.client_phone || undefined }, items: ($parameter.itemsMode === "json" ? ($parameter.items_json ?? []) : ($parameter.items?.item ?? []).map((i) => ({ name: i.name || undefined, description: i.description || undefined, unit: i.unit || undefined, quantity: i.quantity, unit_price: i.unit_price, tax: i.tax_id ? Number(i.tax_id) : undefined }))) } }) }}',
           },
         },
       },
@@ -194,10 +194,15 @@ export const creditNoteDescription: INodeProperties[] = [
 									required:	true,
 							},
 							{
-								displayName: 'Tax',
+								displayName: 'Tax Name or ID',
 								name: 'tax_id',
 								type: 'options',
 								default: '',
+								description:
+									'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
+								typeOptions: {
+									loadOptionsMethod: 'getTaxes',
+								},
 							},
 							{
 								displayName: 'Unit',
