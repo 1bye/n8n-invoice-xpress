@@ -11,6 +11,8 @@ import { creditNoteDescription } from './resources/creditNote';
 import { taxDescription } from './resources/tax';
 import { changeStateDescription } from './resources/changeState';
 
+// Flex changes
+
 export class InvoiceXpress implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'InvoiceXpress',
@@ -80,41 +82,41 @@ export class InvoiceXpress implements INodeType {
     ],
   };
 
-	methods = {
-		loadOptions: {
-			getTaxes: async function (this: ILoadOptionsFunctions) {
-				const res = await this.helpers.httpRequestWithAuthentication.call(
-					this,
-					'invoiceXpressProxyApi',
-					{
-						method: 'GET',
-						url: 'https://ix-proxy.kapta.workers.dev/v2/taxes',
-						json: true,
-					},
-				);
+  methods = {
+    loadOptions: {
+      getTaxes: async function (this: ILoadOptionsFunctions) {
+        const res = await this.helpers.httpRequestWithAuthentication.call(
+          this,
+          'invoiceXpressProxyApi',
+          {
+            method: 'GET',
+            url: 'https://ix-proxy.kapta.workers.dev/v2/taxes',
+            json: true,
+          },
+        );
 
-				const envelope = res && typeof res === 'object' ? (res as Record<string, unknown>) : null;
-				const data = envelope && 'response' in envelope ? envelope.response : envelope;
-				const taxes =
-					data && typeof data === 'object' && 'taxes' in (data as Record<string, unknown>)
-						? (data as Record<string, unknown>).taxes
-						: undefined;
-				const items = Array.isArray(taxes) ? taxes : [];
+        const envelope = res && typeof res === 'object' ? (res as Record<string, unknown>) : null;
+        const data = envelope && 'response' in envelope ? envelope.response : envelope;
+        const taxes =
+          data && typeof data === 'object' && 'taxes' in (data as Record<string, unknown>)
+            ? (data as Record<string, unknown>).taxes
+            : undefined;
+        const items = Array.isArray(taxes) ? taxes : [];
 
-				return items.reduce<INodePropertyOptions[]>((acc, t: unknown) => {
-					const tax = t && typeof t === 'object' ? (t as Record<string, unknown>) : {};
-					const id = Number(tax.id);
-					if (Number.isNaN(id)) return acc;
+        return items.reduce<INodePropertyOptions[]>((acc, t: unknown) => {
+          const tax = t && typeof t === 'object' ? (t as Record<string, unknown>) : {};
+          const id = Number(tax.id);
+          if (Number.isNaN(id)) return acc;
 
-					const name = String(tax.name ?? '').trim();
-					const value = tax.value;
-					acc.push({
-						name: name ? `${name}${value !== undefined ? ` (${value}%)` : ''}` : String(id),
-						value: id,
-					});
-					return acc;
-				}, []);
-			},
-		},
-	};
+          const name = String(tax.name ?? '').trim();
+          const value = tax.value;
+          acc.push({
+            name: name ? `${name}${value !== undefined ? ` (${value}%)` : ''}` : String(id),
+            value: id,
+          });
+          return acc;
+        }, []);
+      },
+    },
+  };
 }

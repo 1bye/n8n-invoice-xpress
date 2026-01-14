@@ -1,6 +1,6 @@
 {
     "name": "n8n-nodes-invoice-xpress",
-    "version": "0.1.1",
+    "version": "0.2.5",
     "description": "n8n community nodes for InvoiceXpress via ix-proxy",
     "license": "MIT",
     "homepage": "",
@@ -21,8 +21,7 @@
         "dev": "n8n-node dev",
         "lint": "n8n-node lint",
         "lint:fix": "n8n-node lint --fix",
-        "release": "n8n-node release",
-        "prepublishOnly": "n8n-node prerelease"
+        "release": "n8n-node release"
     },
     "files": [
         "dist"
