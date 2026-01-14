@@ -1,0 +1,36 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TAX_EXEMPTION_REASONS = void 0;
+exports.TAX_EXEMPTION_REASONS = [
+    { name: 'Sem Isenção (M00)', value: 'M00' },
+    { name: 'Artigo 16º, n.º 6 Do CIVA (M01)', value: 'M01' },
+    { name: 'Artigo 6º Do Decreto-Lei n.º 198/90, De 19 De Junho (M02)', value: 'M02' },
+    { name: 'Isento Artigo 13º Do CIVA (M04)', value: 'M04' },
+    { name: 'Isento Artigo 14º Do CIVA (M05)', value: 'M05' },
+    { name: 'Isento Artigo 15º Do CIVA (M06)', value: 'M06' },
+    { name: 'Isento Artigo 9º Do CIVA (M07)', value: 'M07' },
+    { name: 'IVA - Não Confere Direito a Dedução (M09)', value: 'M09' },
+    { name: 'IVA – Regime De Isenção (M10)', value: 'M10' },
+    { name: 'Regime Particular Do Tabaco (M11)', value: 'M11' },
+    { name: 'Regime Da Margem De Lucro – Agências De Viagens (M12)', value: 'M12' },
+    { name: 'Regime Da Margem De Lucro – Bens Em Segunda Mão (M13)', value: 'M13' },
+    { name: 'Regime Da Margem De Lucro – Objetos De Arte (M14)', value: 'M14' },
+    { name: 'Regime Da Margem De Lucro – Objetos De Coleção E Antiguidades (M15)', value: 'M15' },
+    { name: 'Isento Artigo 14º Do RITI (M16)', value: 'M16' },
+    { name: 'Outras Isenções (M19)', value: 'M19' },
+    { name: 'IVA - Regime Forfetário (M20)', value: 'M20' },
+    { name: 'IVA – Não Confere Direito À Dedução (Ou Expressão Similar) (M21)', value: 'M21' },
+    { name: 'Mercadorias À Consignação (M25)', value: 'M25' },
+    { name: 'Isenção De IVA Com Direito À Dedução No Cabaz Alimentar (M26)', value: 'M26' },
+    { name: 'IVA - Autoliquidação - Artigo 2º n.º 1 Alínea I) Do CIVA (M30)', value: 'M30' },
+    { name: 'IVA - Autoliquidação - Artigo 2º n.º 1 Alínea J) Do CIVA (M31)', value: 'M31' },
+    { name: 'IVA - Autoliquidação - Artigo 2º n.º 1 Alínea L) Do CIVA (M32)', value: 'M32' },
+    { name: 'IVA - Autoliquidação - Artigo 2º n.º 1 Alínea M) Do CIVA (M33)', value: 'M33' },
+    { name: 'IVA - Autoliquidação - Artigo 2º n.º 1 Alínea N) Do CIVA (M34)', value: 'M34' },
+    { name: 'IVA - Autoliquidação - Artigo 6º n.º 6 Alínea a) Do CIVA, a Contrário (M40)', value: 'M40' },
+    { name: 'IVA - Autoliquidação - Artigo 8º n.º 3 Do RITI (M41)', value: 'M41' },
+    { name: 'IVA - Autoliquidação - Decreto-Lei n.º 21/2007, De 29 De Janeiro (M42)', value: 'M42' },
+    { name: 'IVA - Autoliquidação - Decreto-Lei n.º 362/99, De 16 De Setembro (M43)', value: 'M43' },
+    { name: 'Não Sujeito Ou Não Tributado (M99)', value: 'M99' },
+];
+//# sourceMappingURL=taxExemptionReasons.js.map

@@ -1,0 +1,13 @@
+{
+    "node": "n8n-nodes-invoice-xpress",
+    "nodeVersion": "1.0",
+    "codexVersion": "1.0",
+    "categories": ["Finance"],
+    "resources": {
+        "credentialDocumentation": [
+            {
+                "url": "https://github.com/org/repo?tab=readme-ov-file#credentials"
+            }
+        ]
+    }
+}
